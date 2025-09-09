@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entrepreneur Portfolio & Wealth Community</title>
+  <meta name="description" content="Showcase projects, invite collaborators, and help people grow their income and businesses." />
+  <meta property="og:title" content="Entrepreneur Portfolio & Wealth Community" />
+  <meta property="og:description" content="Showcase projects, invite collaborators, and help people grow their income and businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    .glass { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); }
+    @media (prefers-color-scheme: dark){ .glass{ background: rgba(17,24,39,.6); } }
+    /* Card hover */
+    .card:hover { transform: translateY(-2px); }
+    .card { transition: transform .2s ease, box-shadow .2s ease; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-sky-50 text-slate-800 dark:from-slate-900 dark:to-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-50 glass border-b border-slate-200/40 dark:border-slate-700/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-2 font-semibold">
+          <span class="inline-block h-8 w-8 rounded-xl bg-sky-500"></span>
+          <span id="brand">Team</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#portfolio" class="hover:text-sky-600" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="#projects" class="hover:text-sky-600" data-i18n="nav.projects">Projects</a>
+          <a href="#community" class="hover:text-sky-600" data-i18n="nav.community">Community</a>
+          <a href="#resources" class="hover:text-sky-600" data-i18n="nav.resources">Resources</a>
+          <a href="#contact" class="hover:text-sky-600" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <button id="langToggle" class="px-3 py-1.5 rounded-lg border text-xs font-medium hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle language">ES</button>
+          <button id="themeToggle" class="px-3 py-1.5 rounded-lg border text-xs font-medium hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle theme">🌙</button>
+          <a href="#community" class="hidden sm:inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold bg-sky-600 text-white hover:bg-sky-700" data-i18n="btn.join">Join</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="pt-14 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+          <span class="block" data-i18n="hero.title1">Build your future.</span>
+          <span class="block text-sky-600" data-i18n="hero.title2">Show your work. Uplift others.</span>
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-prose" data-i18n="hero.subtitle">
+          An entrepreneur’s hub: showcase your portfolio and invite people who want to grow their income, start projects, and create wealth together.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#portfolio" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" data-i18n="btn.viewPortfolio">View Portfolio</a>
+          <a href="#community" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-sky-600 text-white hover:bg-sky-700" data-i18n="btn.joinCommunity">Join the Community</a>
+        </div>
+        <dl class="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div class="rounded-2xl p-4 bg-white/70 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-700/40">
+            <dt class="text-xs text-slate-500" data-i18n="stats.yearsLabel">Years</dt>
+            <dd class="text-2xl font-bold" id="statYears">6+</dd>
+          </div>
+          <div class="rounded-2xl p-4 bg-white/70 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-700/40">
+            <dt class="text-xs text-slate-500" data-i18n="stats.projectsLabel">Projects</dt>
+            <dd class="text-2xl font-bold" id="statProjects">24</dd>
+          </div>
+          <div class="rounded-2xl p-4 bg-white/70 dark:bg-slate-900/60 border border-slate-200/50 dark:border-slate-700/40">
+            <dt class="text-xs text-slate-500" data-i18n="stats.impactLabel">Client Revenue</dt>
+            <dd class="text-2xl font-bold" id="statImpact">$1.2M</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="relative">
+        <img class="rounded-3xl w-full h-72 sm:h-96 object-cover shadow-xl" alt="Collage of entrepreneurship: laptop, whiteboard, and team meeting" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1200&auto=format&fit=crop"/>
+        <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 rounded-2xl shadow-lg p-4 border border-slate-200/60 dark:border-slate-800/60">
+          <p class="text-xs text-slate-600 dark:text-slate-300" data-i18n="hero.badge">Open to collabs • Advisory • Workshops</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="sm:flex sm:items-end sm:justify-between gap-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="portfolio.title">Selected Portfolio</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300" data-i18n="portfolio.subtitle">A few highlights across SaaS, automation, and e‑commerce.</p>
+        </div>
+        <a href="#contact" class="mt-3 sm:mt-0 inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" data-i18n="btn.hireMe">Hire me</a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <img alt="SaaS analytics dashboard" class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop">
+          <div class="p-5">
+            <h3 class="font-semibold">SaaS Analytics</h3>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Self‑serve dashboards and cohort reporting for a subscription app.</p>
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300">SaaS</span>
+              <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">Automation</span>
+            </div>
+          </div>
+        </article>
+        <article class="card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <img alt="E‑commerce product grid" class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1514041181368-bca62cceffcd?q=80&w=1200&auto=format&fit=crop">
+          <div class="p-5">
+            <h3 class="font-semibold">Storefront Revamp</h3>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">+38% conversion lifting through UX and email flows.</p>
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-900/40 dark:text-fuchsia-300">E‑commerce</span>
+              <span class="px-2 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">Email</span>
+            </div>
+          </div>
+        </article>
+        <article class="card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <img alt="Workflow automation" class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1542621334-a254cf47733d?q=80&w=1200&auto=format&fit=crop">
+          <div class="p-5">
+            <h3 class="font-semibold">Ops Automations</h3>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Reduced manual hours by 70% using low‑code integrations.</p>
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <span class="px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">Automation</span>
+              <span class="px-2 py-1 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">API</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-14 bg-white/70 dark:bg-slate-900/50 border-t border-b border-slate-200/50 dark:border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="sm:flex sm:items-end sm:justify-between gap-6">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="projects.title">Open Projects & Collabs</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300" data-i18n="projects.subtitle">Pick a track and come build with us.</p>
+        </div>
+        <div class="mt-4 sm:mt-0 flex flex-wrap gap-2 text-sm" role="tablist" aria-label="Project filters">
+          <button class="filter-btn px-3 py-1.5 rounded-full border" data-filter="all" aria-selected="true">All</button>
+          <button class="filter-btn px-3 py-1.5 rounded-full border" data-filter="saas">SaaS</button>
+          <button class="filter-btn px-3 py-1.5 rounded-full border" data-filter="ecom">E‑com</button>
+          <button class="filter-btn px-3 py-1.5 rounded-full border" data-filter="automation">Automation</button>
+          <button class="filter-btn px-3 py-1.5 rounded-full border" data-filter="finance">Finance</button>
+        </div>
+      </div>
+
+      <div id="projectGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div class="mt-8 text-center">
+        <a href="#community" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-sky-600 text-white hover:bg-sky-700" data-i18n="projects.cta">I want to increase my income</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" class="py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="community.title">Join the Community</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300" data-i18n="community.subtitle">Weekly challenges, office hours, and real projects that grow skills & income.</p>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>✅ <span data-i18n="community.benefits.0">Step‑by‑step playbooks to launch micro‑projects in 30 days.</span></li>
+          <li>✅ <span data-i18n="community.benefits.1">Access to templates: budgets, pitch decks, landing pages.</span></li>
+          <li>✅ <span data-i18n="community.benefits.2">Peer accountability + live feedback sessions.</span></li>
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://chat.whatsapp.com/HaDbhNOdUcl0iJN0qfgMDI?mode=ems_copy_t" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700" data-i18n="community.btn.chat">Join the chat</a>
+          <a href="#resources" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" data-i18n="community.btn.resources">See free resources</a>
+        </div>
+      </div>
+      <form id="newsletterForm" class="rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60" data-emailjs-service-id="YOUR_NEWSLETTER_SERVICE_ID" data-emailjs-template-id="YOUR_NEWSLETTER_TEMPLATE_ID" data-emailjs-public-key="YOUR_EMAILJS_PUBLIC_KEY">
+        <h3 class="text-lg font-semibold" data-i18n="newsletter.title">Get the weekly playbook</h3>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300" data-i18n="newsletter.subtitle">Actionable steps to improve your finances and launch small projects.</p>
+        <div class="mt-4 grid gap-3">
+          <input required type="text" name="name" placeholder="Your name" class="rounded-xl border px-4 py-2 bg-transparent" />
+          <input required type="email" name="email" placeholder="you@email.com" class="rounded-xl border px-4 py-2 bg-transparent" />
+          <label class="flex items-center gap-2 text-xs text-slate-500"><input type="checkbox" required class="accent-sky-600"> <span data-i18n="newsletter.agree">I agree to receive emails.</span></label>
+          <button class="rounded-xl px-4 py-2 font-semibold bg-sky-600 text-white hover:bg-sky-700" type="submit" data-i18n="newsletter.btn">Subscribe</button>
+          <p id="newsletterStatus" class="text-xs text-slate-500" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="resources" class="py-14 bg-white/70 dark:bg-slate-900/50 border-t border-b border-slate-200/50 dark:border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="resources.title">Free Resources</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300" data-i18n="resources.subtitle">Download starter templates to manage money and test ideas.</p>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <h3 class="font-semibold">Budget Sheet (CSV)</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Monthly budget & expense tracker.</p>
+          <button class="mt-3 rounded-xl px-4 py-2 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" onclick="downloadBudgetCSV()" data-i18n="resources.download">Download</button>
+        </div>
+        <div class="card rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <h3 class="font-semibold">Business Idea Evaluator (CSV)</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Score ideas by market, CAC, LTV, ROI.</p>
+          <button class="mt-3 rounded-xl px-4 py-2 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" onclick="downloadIdeaCSV()" data-i18n="resources.download">Download</button>
+        </div>
+        <div class="card rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+          <h3 class="font-semibold">30‑Day Launch Checklist (PDF)</h3>
+          <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Daily tasks to ship an MVP.</p>
+          <button class="mt-3 rounded-xl px-4 py-2 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" onclick="generateChecklistPDF()" data-i18n="resources.download">Download</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60">
+        <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="contact.title">Let’s Work Together</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300" data-i18n="contact.subtitle">Tell me about your project or collaboration idea.</p>
+        <form id="contactForm" class="mt-4 grid gap-3" novalidate data-emailjs-service-id="YOUR_CONTACT_SERVICE_ID" data-emailjs-template-id="YOUR_CONTACT_TEMPLATE_ID" data-emailjs-public-key="YOUR_EMAILJS_PUBLIC_KEY">
+          <input required type="text" name="name" placeholder="Your name" class="rounded-xl border px-4 py-2 bg-transparent" />
+          <input required type="email" name="email" placeholder="you@email.com" class="rounded-xl border px-4 py-2 bg-transparent" />
+          <input type="text" name="subject" placeholder="Subject" class="rounded-xl border px-4 py-2 bg-transparent" />
+          <textarea required name="message" rows="4" placeholder="What do you want to build?" class="rounded-xl border px-4 py-2 bg-transparent"></textarea>
+          <div class="flex items-center justify-between text-xs text-slate-500">
+            <label class="flex items-center gap-2"><input type="checkbox" required class="accent-sky-600"> <span data-i18n="contact.agree">I agree to be contacted.</span></label>
+            <span id="contactStatus" aria-live="polite"></span>
+          </div>
+          <div class="flex gap-3">
+            <button type="submit" class="rounded-xl px-4 py-2 font-semibold bg-sky-600 text-white hover:bg-sky-700" data-i18n="contact.btn.send">Send</button>
+            <a href="#community" class="rounded-xl px-4 py-2 font-semibold border" data-i18n="contact.btn.alt">Or join the community</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+      <p>© <span id="year"></span> <span id="footerName">Your Name</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-sky-600" aria-label="Twitter">Twitter</a>
+        <a href="#" class="hover:text-sky-600" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" class="hover:text-sky-600" aria-label="GitHub">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="newsletterModal" class="fixed inset-0 z-[99] hidden items-center justify-center p-4 transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" aria-hidden="true"></div>
+    <div class="relative w-full max-w-sm rounded-2xl p-6 bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60 transition-transform duration-300 scale-95 opacity-0">
+      <button id="closeModalBtn" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="text-center">
+        <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-600 dark:bg-sky-900/40 dark:text-sky-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+        </div>
+        <h3 id="modalTitle" class="mt-4 text-xl font-bold" data-i18n="modal.title">Join Our Newsletter</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300" data-i18n="modal.subtitle">Get exclusive playbooks and updates on building wealth and starting projects. No spam, ever.</p>
+      </div>
+      <form id="modalNewsletterForm" class="mt-4 grid gap-3" data-emailjs-service-id="YOUR_NEWSLETTER_SERVICE_ID" data-emailjs-template-id="YOUR_NEWSLETTER_TEMPLATE_ID" data-emailjs-public-key="YOUR_EMAILJS_PUBLIC_KEY">
+        <input required type="text" name="name" placeholder="Your name" class="rounded-xl border px-4 py-2 bg-transparent" />
+        <input required type="email" name="email" placeholder="you@email.com" class="rounded-xl border px-4 py-2 bg-transparent" />
+        <button class="rounded-xl px-4 py-2 font-semibold bg-sky-600 text-white hover:bg-sky-700" type="submit" data-i18n="modal.btn">Subscribe</button>
+        <p id="modalStatus" class="text-xs text-slate-500" aria-live="polite"></p>
+      </form>
+      <p id="noThanks" class="mt-4 text-center text-xs text-slate-500 cursor-pointer hover:text-slate-700 dark:hover:text-slate-300" data-i18n="modal.noThanks">No thanks, I'll explore the site.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    // ---- Theme Toggle ----
+    const themeToggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    function applyTheme(dark){ document.documentElement.classList.toggle('dark', dark); themeToggle.textContent = dark ? '☀️' : '🌙'; }
+    applyTheme(localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : prefersDark);
+    themeToggle.addEventListener('click', () => { const dark = !document.documentElement.classList.contains('dark'); applyTheme(dark); localStorage.setItem('theme', dark ? 'dark' : 'light'); });
+
+    // ---- Language (EN/ES) ----
+    const i18n = {
+      en: {
+        nav:{portfolio:'Portfolio',projects:'Projects',community:'Community',resources:'Resources',contact:'Contact'},
+        btn:{join:'Join',viewPortfolio:'View Portfolio',joinCommunity:'Join the Community',hireMe:'Hire me'},
+        hero:{title1:'Build your future.',title2:'Show your work. Uplift others.',subtitle:'An entrepreneur\'s hub: showcase your portfolio and invite people who want to grow their income, start projects, and create wealth together.',badge:'Open to collabs • Advisory • Workshops'},
+        stats:{yearsLabel:'Years',projectsLabel:'Projects',impactLabel:'Client Revenue'},
+        portfolio:{title:'Selected Portfolio',subtitle:'A few highlights across SaaS, automation, and e‑commerce.'},
+        projects:{title:'Open Projects & Collabs',subtitle:'Pick a track and come build with us.',cta:'I want to increase my income'},
+        community:{title:'Join the Community',subtitle:'Weekly challenges, office hours, and real projects that grow skills & income.',benefits:['Step‑by‑step playbooks to launch micro‑projects in 30 days.','Access to templates: budgets, pitch decks, landing pages.','Peer accountability + live feedback sessions.'],btn:{chat:'Join the chat',resources:'See free resources'}},
+        newsletter:{title:'Get the weekly playbook',subtitle:'Actionable steps to improve your finances and launch small projects.',agree:'I agree to receive emails.',btn:'Subscribe'},
+        modal:{title:'Join Our Newsletter',subtitle:'Get exclusive playbooks and updates on building wealth and starting projects. No spam, ever.',btn:'Subscribe',noThanks:'No thanks, I\'ll explore the site.'},
+        resources:{title:'Free Resources',subtitle:'Download starter templates to manage money and test ideas.',download:'Download'},
+        contact:{title:'Let\'s Work Together',subtitle:'Tell me about your project or collaboration idea.',agree:'I agree to be contacted.',btn:{send:'Send',alt:'Or join the community'}},
+        footer:{rights:'All rights reserved.'}
+      },
+      es: {
+        nav:{portfolio:'Portafolio',projects:'Proyectos',community:'Comunidad',resources:'Recursos',contact:'Contacto'},
+        btn:{join:'Unirme',viewPortfolio:'Ver portafolio',joinCommunity:'Unirme a la comunidad',hireMe:'Contrátame'},
+        hero:{title1:'Construye tu futuro.',title2:'Muestra tu trabajo. Eleva a otros.',subtitle:'Un hub para emprendedores: muestra tu portafolio e invita a quienes desean crecer sus ingresos, iniciar proyectos y crear riqueza juntos.',badge:'Abierto a colaboraciones • Mentoría • Talleres'},
+        stats:{yearsLabel:'Años',projectsLabel:'Proyectos',impactLabel:'Ingresos clientes'},
+        portfolio:{title:'Portafolio destacado',subtitle:'Algunos trabajos en SaaS, automatización y e‑commerce.'},
+        projects:{title:'Proyectos abiertos y colaboraciones',subtitle:'Elige una ruta y construyamos juntos.',cta:'Quiero aumentar mis ingresos'},
+        community:{title:'Únete a la comunidad',subtitle:'Retos semanales, office hours y proyectos reales para crecer habilidades e ingresos.',benefits:['Playbooks paso a paso para lanzar micro‑proyectos en 30 días.','Acceso a plantillas: presupuestos, pitch decks, landing pages.','Acompañamiento entre pares + sesiones con feedback.'],btn:{chat:'Entrar al chat',resources:'Ver recursos gratis'}},
+        newsletter:{title:'Recibe el playbook semanal',subtitle:'Pasos accionables para mejorar tus finanzas y lanzar proyectos.',agree:'Acepto recibir correos.',btn:'Suscribirme'},
+        modal:{title:'Únete a nuestro Newsletter',subtitle:'Recibe playbooks exclusivos y actualizaciones para generar riqueza e iniciar proyectos. Sin spam.',btn:'Suscribirme',noThanks:'No, gracias. Prefiero explorar el sitio.'},
+        resources:{title:'Recursos gratis',subtitle:'Descarga plantillas para gestionar dinero y validar ideas.',download:'Descargar'},
+        contact:{title:'Trabajemos juntos',subtitle:'Cuéntame tu proyecto o idea de colaboración.',agree:'Acepto ser contactado.',btn:{send:'Enviar',alt:'O únete a la comunidad'}},
+        footer:{rights:'Todos los derechos reservados.'}
+      }
+    };
+    const langToggle = document.getElementById('langToggle');
+    function applyLang(lang){
+      const dict = i18n[lang] || i18n.en;
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n');
+        const parts = key.split('.');
+        let val = dict;
+        parts.forEach(p=> val = val?.[p]);
+        if(typeof val === 'string'){ el.textContent = val; }
+      });
+      langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+      localStorage.setItem('lang', lang);
+    }
+    langToggle.addEventListener('click',()=>{
+      const current = localStorage.getItem('lang') || 'en';
+      applyLang(current === 'en' ? 'es' : 'en');
+    });
+    applyLang(localStorage.getItem('lang') || 'en');
+
+    // ---- Dynamic Projects ----
+    const projects = [
+      { title:'Micro‑SaaS: Report Genie', desc:'Weekly PDF analytics reports from raw CSVs.', tags:['saas','automation'], links:{demo:'#',case:'#'} },
+      { title:'Local Service Funnel', desc:'Landing + booking + payments for service business.', tags:['ecom'], links:{demo:'#',case:'#'} },
+      { title:'Invoice Automator', desc:'No‑code invoicing with webhook + email.', tags:['automation','finance'], links:{demo:'#',case:'#'} },
+      { title:'Budget Tracker', desc:'Personal finance dashboard (web).', tags:['finance','saas'], links:{demo:'https://www.youngdesert.org/',case:'#'} },
+      { title:'AI FAQ Bot', desc:'Docs‑trained assistant for support.', tags:['saas'], links:{demo:'#',case:'#'} },
+      { title:'Marketplace MVP', desc:'Two‑sided listing + checkout.', tags:['ecom'], links:{demo:'#',case:'#'} }
+    ];
+    const projectGrid = document.getElementById('projectGrid');
+    function renderProjects(filter='all'){
+      projectGrid.innerHTML = '';
+      projects.filter(p=> filter==='all' || p.tags.includes(filter))
+        .forEach(p=>{
+          const card = document.createElement('article');
+          card.className = 'card rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-700/60 flex flex-col';
+          card.innerHTML = `
+            <div class="h-36 bg-gradient-to-br from-sky-200 to-emerald-200 dark:from-sky-900/40 dark:to-emerald-900/40"></div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-semibold">${p.title}</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">${p.desc}</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">${p.tags.map(t=>`<span class='px-2 py-1 rounded-full border'>${t}</span>`).join('')}</div>
+              <div class="mt-4 flex gap-3 mt-auto">
+                <a class="rounded-xl px-3 py-1.5 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" href="${p.links.demo}">Live demo</a>
+                <a class="rounded-xl px-3 py-1.5 text-sm font-semibold border" href="${p.links.case}">Case study</a>
+              </div>
+            </div>`;
+          projectGrid.appendChild(card);
+        });
+    }
+    renderProjects();
+    document.querySelectorAll('.filter-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.filter-btn').forEach(b=>b.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+        renderProjects(btn.dataset.filter);
+      });
+    });
+
+    // ---- Form Submission Handler ----
+    async function handleFormSubmit(event, form, statusElement) {
+      event.preventDefault();
+      
+      const formData = new FormData(form);
+      const serviceId = form.getAttribute('data-emailjs-service-id');
+      const templateId = form.getAttribute('data-emailjs-template-id');
+      const publicKey = form.getAttribute('data-emailjs-public-key');
+
+      if (!serviceId || !templateId || !publicKey) {
+        statusElement.textContent = '❌ EmailJS keys are missing. Data saved locally instead.';
+        const list = JSON.parse(localStorage.getItem('form_submissions') || '[]');
+        list.push({ ...Object.fromEntries(formData), formId: form.id, ts: Date.now() });
+        localStorage.setItem('form_submissions', JSON.stringify(list));
+        form.reset();
+        return;
+      }
+
+      try {
+        const result = await emailjs.sendForm(serviceId, templateId, form, publicKey);
+        statusElement.textContent = '✅ Success! I will get back to you shortly.';
+        form.reset();
+      } catch (error) {
+        statusElement.textContent = `❌ Something went wrong. Error: ${error.text || error}`;
+      }
+    }
+
+    // Attach form handlers
+    const newsletterForm = document.getElementById('newsletterForm');
+    const newsletterStatus = document.getElementById('newsletterStatus');
+    newsletterForm.addEventListener('submit', (e) => handleFormSubmit(e, newsletterForm, newsletterStatus));
+    
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+    contactForm.addEventListener('submit', (e) => handleFormSubmit(e, contactForm, contactStatus));
+
+    // ---- Resource downloads ----
+    function download(filename, content){
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename; a.click();
+      setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    }
+    window.downloadBudgetCSV = function(){
+      const csv = [
+        'Date,Category,Amount,Type,Notes',
+        ',Income,,Income,',
+        ',Housing,,Expense,',
+        ',Food,,Expense,',
+        ',Utilities,,Expense,',
+        ',Transport,,Expense,',
+        ',Savings,,Transfer,',
+        ',Investments,,Asset,',
+      ].join('\n');
+      download('budget_template.csv', csv);
+    }
+    window.downloadIdeaCSV = function(){
+      const csv = [
+        'Idea,Problem,Solution,Audience,Market Size,CAC,LTV,Competition,Moat,Risks,30-Day Plan,Success Metric',
+        ',,,,,,,,,,,',
+      ].join('\n');
+      download('business_idea_evaluator.csv', csv);
+    }
+    window.generateChecklistPDF = function(){
+      const lines = [
+        '30-DAY LAUNCH CHECKLIST',
+        'Day 1-3: Define problem, audience, success metric',
+        'Day 4-7: Draft landing page + offer',
+        'Day 8-10: Build MVP core',
+        'Day 11-15: Add payments / booking',
+        'Day 16-20: Ship to 10 users, collect feedback',
+        'Day 21-25: Iterate + fix top 3 issues',
+        'Day 26-30: Prep case study + soft launch',
+      ].join('\n');
+      // Create a minimal PDF via a data URL (simple text-based)
+      const pre = `%PDF-1.3\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n2 0 obj<</Type/Pages/Count 1/Kids[3 0 R]>>endobj\n3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 612 792]/Contents 4 0 R/Resources<</Font<</F1 5 0 R>>>>>>endobj\n4 0 obj<</Length  ${20+lines.length*50}>>stream\nBT /F1 18 Tf 50 740 Td (30-DAY LAUNCH CHECKLIST) Tj\n/F1 12 Tf 0 -30 Td `;
+      const text = lines.slice(1).map((l,i)=>`(• ${l.replace(/\(|\)/g,'')}) Tj 0 -18 Td`).join(' ');
+      const suf = ` ET\nendstream\nendobj\n5 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj\nxref\n0 6\n0000000000 65535 f \n0000000010 00000 n \n0000000060 00000 n \n0000000113 00000 n \n0000000271 00000 n \n0000000540 00000 n \ntrailer<</Root 1 0 R/Size 6>>\nstartxref\n620\n%%EOF`;
+      const pdf = pre + text + suf;
+      const blob = new Blob([pdf], {type:'application/pdf'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = '30-day-launch-checklist.pdf';
+      a.click();
+    }
+
+    // ---- Newsletter Modal ----
+    const modal = document.getElementById('newsletterModal');
+    const modalContent = modal.querySelector('div.relative');
+    const modalForm = document.getElementById('modalNewsletterForm');
+    const modalStatus = document.getElementById('modalStatus');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const noThanks = document.getElementById('noThanks');
+
+    function closeModal() {
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 300);
+      localStorage.setItem('newsletter_modal_shown', 'true');
+    }
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    window.addEventListener('load', () => {
+      if (!localStorage.getItem('newsletter_modal_shown') && window.innerWidth > 640) {
+        setTimeout(openModal, 2000);
+      }
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    noThanks.addEventListener('click', closeModal);
+
+    modalForm.addEventListener('submit', (e) => handleFormSubmit(e, modalForm, modalStatus));
+  </script>
+</body>
+</html>
