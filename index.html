@@ -3,13 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Entrepreneurship & Wealth Community</title>
+  <title>PilasHub</title>
   <meta name="description" content="Showcase projects, invite collaborators, and help people grow their income and businesses." />
   <meta property="og:title" content="Entrepreneur Portfolio & Wealth Community" />
   <meta property="og:description" content="Showcase projects, invite collaborators, and help people grow their income and businesses." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" />
   <meta name="theme-color" content="#0ea5e9" />
+  <!-- Favicon (JPEG) -->
+<link rel="icon" href="./01.jpeg" type="image/jpeg">
+<!-- (Opcional) iOS Home Screen — funcionará, aunque Apple recomienda PNG 180x180 -->
+<link rel="apple-touch-icon" href="./01.jpeg">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root { color-scheme: light dark; }
@@ -42,10 +47,16 @@
   <header class="sticky top-0 z-50 glass border-b border-slate-200/40 dark:border-slate-700/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 relative">
-        <a href="#home" class="flex items-center gap-2 font-semibold z-10">
-          <span class="inline-block h-8 w-8 rounded-xl bg-sky-500"></span>
-          <span id="brand">ChivoLab</span>
-        </a>
+<a href="#home" class="flex items-center gap-2 font-semibold z-10">
+  <span
+    class="inline-block h-8 w-8 rounded-xl bg-center bg-no-repeat bg-contain"
+    style="background-image:url('/01.jpeg'); background-color:transparent;"
+    aria-label="ChivoLab"
+    role="img"
+  ></span>
+  <span id="brand">ChivoLab</span>
+</a>
+
         
         <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
