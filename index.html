@@ -14,28 +14,51 @@
   <style>
     :root { color-scheme: light dark; }
     html { scroll-behavior: smooth; }
-    .glass { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); }
+    .glass { background: rgba(255, 255, 255, 0.637); backdrop-filter: blur(8px); }
     @media (prefers-color-scheme: dark){ .glass{ background: rgba(17,24,39,.6); } }
-    /* Card hover */
     .card:hover { transform: translateY(-2px); }
     .card { transition: transform .2s ease, box-shadow .2s ease; }
+    .nav-menu.is-active { display: flex; }
+    @media (max-width: 767px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(4, 5, 31, 0.849);
+        border-bottom: 1px solid rgba(10, 12, 14, 0.637);
+        padding: 1rem 0;
+      }
+      .nav-menu a {
+        padding: 0.75rem 1.5rem;
+      }
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-sky-50 text-slate-800 dark:from-slate-900 dark:to-slate-950 dark:text-slate-100">
+
   <header class="sticky top-0 z-50 glass border-b border-slate-200/40 dark:border-slate-700/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="#home" class="flex items-center gap-2 font-semibold">
+      <div class="flex items-center justify-between h-16 relative">
+        <a href="#home" class="flex items-center gap-2 font-semibold z-10">
           <span class="inline-block h-8 w-8 rounded-xl bg-sky-500"></span>
           <span id="brand">Team</span>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
+        
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+
+        <nav id="mainNav" class="nav-menu md:flex items-center gap-6 text-sm">
           <a href="#portfolio" class="hover:text-sky-600" data-i18n="nav.portfolio">Portfolio</a>
           <a href="#projects" class="hover:text-sky-600" data-i18n="nav.projects">Projects</a>
           <a href="#community" class="hover:text-sky-600" data-i18n="nav.community">Community</a>
           <a href="#resources" class="hover:text-sky-600" data-i18n="nav.resources">Resources</a>
           <a href="#contact" class="hover:text-sky-600" data-i18n="nav.contact">Contact</a>
         </nav>
+
         <div class="flex items-center gap-2">
           <button id="langToggle" class="px-3 py-1.5 rounded-lg border text-xs font-medium hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle language">ES</button>
           <button id="themeToggle" class="px-3 py-1.5 rounded-lg border text-xs font-medium hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle theme">🌙</button>
@@ -165,7 +188,7 @@
           <li>✅ <span data-i18n="community.benefits.2">Peer accountability + live feedback sessions.</span></li>
         </ul>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="https://chat.whatsapp.com/HaDbhNOdUcl0iJN0qfgMDI?mode=ems_copy_t" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700" data-i18n="community.btn.chat">Join the chat</a>
+          <a href="#" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-emerald-600 text-white hover:bg-emerald-700" data-i18n="community.btn.chat">Join the chat</a>
           <a href="#resources" class="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200" data-i18n="community.btn.resources">See free resources</a>
         </div>
       </div>
@@ -274,9 +297,40 @@
     // ---- Theme Toggle ----
     const themeToggle = document.getElementById('themeToggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    function applyTheme(dark){ document.documentElement.classList.toggle('dark', dark); themeToggle.textContent = dark ? '☀️' : '🌙'; }
-    applyTheme(localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : prefersDark);
-    themeToggle.addEventListener('click', () => { const dark = !document.documentElement.classList.contains('dark'); applyTheme(dark); localStorage.setItem('theme', dark ? 'dark' : 'light'); });
+    const currentTheme = localStorage.getItem('theme');
+    
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      themeToggle.textContent = isDark ? '☀️' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    
+    // Set initial theme based on localStorage or system preference
+    if (currentTheme) {
+      applyTheme(currentTheme === 'dark');
+    } else {
+      applyTheme(prefersDark);
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(!isDark);
+    });
+
+    // ---- Mobile Menu Toggle ----
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('is-active');
+    });
+
+    // Close the menu when a link is clicked
+    document.querySelectorAll('#mainNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('is-active');
+      });
+    });
 
     // ---- Language (EN/ES) ----
     const i18n = {
